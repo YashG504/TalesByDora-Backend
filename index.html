@@ -1,0 +1,103 @@
+<!-- # TalesByDora - Dubai Page
+
+A beautiful, responsive landing page for TalesByDora Dubai travel website built with React, TypeScript, and Tailwind CSS.
+
+## Project Structure
+
+```
+Dubai-page/
+├── public/
+│   ├── background.jpg     # Add your Dubai background image here
+│   ├── logo.jpg          # Add your logo image here
+│   └── vite.svg
+├── src/
+│   ├── components/
+│   │   ├── Header.tsx
+│   │   ├── Hero.tsx
+│   │   ├── FeatureCards.tsx
+│   │   ├── SocialSidebar.tsx
+│   │   └── ScrollIndicator.tsx
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── index.css
+│   └── vite-env.d.ts
+├── package.json
+├── vite.config.ts
+├── tailwind.config.js
+├── postcss.config.js
+├── tsconfig.json
+├── tsconfig.app.json
+├── tsconfig.node.json
+└── eslint.config.js
+```
+
+## Setup Instructions
+
+1. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Add Images**
+   - Add your Dubai background image as `background.jpg` in the `public/` folder
+   - Add your logo image as `logo.jpg` in the `public/` folder
+
+3. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for Production**
+   ```bash
+   npm run build
+   ```
+
+## Features
+
+- ✅ Responsive design
+- ✅ Custom typography (Poppins, Raleway, Open Sans)
+- ✅ Fixed social media sidebar
+- ✅ Glass-morphism effects
+- ✅ Smooth animations and transitions
+- ✅ TypeScript support
+- ✅ Tailwind CSS styling
+
+## Technologies Used
+
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- Lucide React (for icons)
+- PostCSS & Autoprefixer
+
+## Browser Support
+
+Modern browsers supporting ES2020+ features. -->
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TalesByDora</title>
+
+  <!-- Google Fonts: Poppins + Bebas Neue -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+
+  <body class="bg-white text-black font-poppins">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

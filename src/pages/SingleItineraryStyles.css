@@ -1,0 +1,335 @@
+/* In: src/pages/SingleItineraryStyles.css */
+
+/* General Body and Font Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Loading and Error Screens */
+.loading-screen, .error-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.error-screen {
+    color: #e53e3e; /* Red for errors */
+}
+
+/* Hero Section with Image Grid */
+.hero-section {
+    margin-bottom: 3rem;
+}
+
+.desktop-images {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+    height: 500px;
+}
+
+.main-image-wrapper, .grid-images-container {
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.main-image:hover {
+    transform: scale(1.05);
+}
+
+.grid-images-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+}
+
+.grid-image-top, .grid-images-bottom {
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+
+.grid-images-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.grid-image-top,
+.grid-image-bottom-left,
+.grid-image-bottom-right {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.grid-image-top:hover,
+.grid-image-bottom-left:hover,
+.grid-image-bottom-right:hover {
+    transform: scale(1.05);
+}
+
+.mobile-tablet-image {
+    display: none; /* Hidden on desktop */
+}
+
+/* Main Content Grid */
+.content-booking-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.details-column .title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+}
+
+.details-column .rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: #4a5568;
+}
+
+.details-column .description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #4a5568;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+/* Itinerary Accordion */
+.itinerary-list {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.itinerary-item .line {
+    position: absolute;
+    left: 11px; /* Center of the icon */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #cbd5e0;
+    transition: background-color 0.3s ease;
+}
+
+.itinerary-item:last-child .line {
+    height: 24px; /* Stop line at the last icon */
+}
+
+.itinerary-item.active .line {
+    background-color: #263A48 ; /* Blue for active */
+}
+
+.itinerary-item-content {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.itinerary-icon-wrapper {
+    width: 24px;
+    height: 24px;
+    background-color: #cbd5e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.itinerary-item.active .itinerary-icon-wrapper {
+    background-color: #263A48 ;
+    transform: scale(1.1);
+}
+
+.itinerary-text-wrapper {
+    flex-grow: 1;
+}
+
+.itinerary-title-button {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1a202c;
+    text-align: left;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.itinerary-description {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, margin-top 0.5s ease-out;
+    font-size: 0.9rem;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+.itinerary-item.active .itinerary-description {
+    max-height: 500px; /* Adjust as needed */
+    margin-top: 0.75rem;
+}
+
+/* Highlights & Other Lists */
+.list-items {
+    list-style-type: '✓ ';
+    padding-left: 1.2rem;
+    color: #4a5568;
+}
+
+.list-items li {
+    padding-left: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Booking Form */
+.booking-column {
+    position: sticky;
+    top: 2rem;
+}
+
+.new-booking-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+}
+
+.expert-header {
+    background-color: #263A48 ;
+    color: white;
+    padding: 1rem 1.5rem;
+    text-align: center;
+}
+
+.expert-form {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.price-section {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.price-label {
+    font-size: 0.9rem;
+    color: #718096;
+}
+
+.price-amount {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a202c;
+    display: block;
+}
+
+.price-per {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #718096;
+}
+
+.plan-button {
+    background-color: #263A48;
+    color: white;
+    font-weight: 700;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.plan-button:hover {
+    background-color: #2563eb;
+    transform: scale(1.02);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .content-booking-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .desktop-images {
+        display: none;
+    }
+    .mobile-tablet-image {
+        display: block;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        border-radius: 0.75rem;
+    }
+    .single-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .details-column .title {
+        font-size: 2rem;
+    }
+}
+plan-button {
+  /* ...your existing styles like background-color, padding, etc... */
+  
+  /* Add these three lines to center the text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
