@@ -1,13 +1,12 @@
-// api/index.js - CORRECTED VERSION
+// api/index.js - FINAL FIXED VERSION
 
-import compression from 'compression';
 import helmet from 'helmet';
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import 'dotenv/config'; // Use this for dotenv
+import 'dotenv/config'; 
 
-// Import your route files - IMPORTANT: add the .js extension
+// Import your route files
 import apiRoutes from '../backend/routes/api.js';
 import itinerariesRoutes from '../backend/routes/itineraries.js';
 import blogsRoutes from '../backend/routes/blogs.js';
@@ -23,7 +22,8 @@ app.use(cors({
 }));
 
 app.use(express.json());
-app.use(compression());
+
+// REMOVED COMPRESSION HERE to fix Vercel error
 
 mongoose.connect(process.env.MONGO_URI)
 .then(() => {
