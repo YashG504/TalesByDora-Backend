@@ -196,4 +196,6 @@ const Page5 = () => {
   );
 };
 
+// Renamed export to match the filename convention.
 export default Page5;
+

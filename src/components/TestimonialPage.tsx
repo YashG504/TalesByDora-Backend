@@ -74,6 +74,7 @@ const TestimonialPage: React.FC<{ data?: any }> = ({ data }) => {
               {/* Image */}
               <div className="relative w-[90%] max-w-sm sm:max-w-md aspect-video mx-auto lg:absolute lg:w-[500px] lg:h-[350px] lg:top-[48%] lg:left-[20%] lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 bg-white bg-opacity-10 rounded-xl overflow-hidden shadow-lg">
                 <img
+                  loading="lazy"
                   src={t.image}
                   alt={t.name}
                   className="absolute inset-0 w-full h-full object-cover"

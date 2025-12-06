@@ -2,14 +2,11 @@ const express = require('express');
 const router = express.Router();
 const Blog = require('../models/Blog');
 
-// @route   GET /api/blogs
-// @desc    Get latest and recent blogs (for general use)
-// @access  Public
 router.get('/', async (req, res) => {
     try {
-        const blogs = await Blog.find().sort({ createdAt: -1 });
-        const latest = blogs[0];
-        const recent = blogs.slice(1, 4);
+        const blogs = await Blog.find().sort({ createdAt: -1 }).limit(4).lean();
+        const latest = blogs[0] || null;
+        const recent = blogs.length > 1 ? blogs.slice(1, 4) : [];
         res.json({ latest, recent });
     } catch (err) {
         console.error(err.message);
@@ -17,26 +14,20 @@ router.get('/', async (req, res) => {
     }
 });
 
-// NEW ROUTE FOR DESTINATIONS
-// @route   GET /api/blogs/destination/:destinationSlug
-// @desc    Get latest and recent blogs for a SPECIFIC destination
-// @access  Public
 router.get('/destination/:destinationSlug', async (req, res) => {
     try {
         const { destinationSlug } = req.params;
-
-        // Find blogs that match the destinationSlug, sorted by newest first
         const blogs = await Blog.find({ destinationSlug: destinationSlug })
-                                .sort({ createdAt: -1 });
+                                .sort({ createdAt: -1 })
+                                .limit(4)
+                                .lean();
 
         if (!blogs || blogs.length === 0) {
             return res.status(404).json({ msg: 'No blogs found for this destination' });
         }
 
-        // Separate the latest from recent
         const latest = blogs[0];
-        const recent = blogs.slice(1, 4);
-
+        const recent = blogs.length > 1 ? blogs.slice(1, 4) : [];
         res.json({ latest, recent });
     } catch (err) {
         console.error(err.message);
@@ -44,13 +35,9 @@ router.get('/destination/:destinationSlug', async (req, res) => {
     }
 });
 
-
-// @route   GET /api/blogs/:id
-// @desc    Get a single blog post by its ID
-// @access  Public
 router.get('/:id', async (req, res) => {
     try {
-        const blog = await Blog.findById(req.params.id);
+        const blog = await Blog.findById(req.params.id).lean();
 
         if (!blog) {
             return res.status(404).json({ msg: 'Blog not found' });

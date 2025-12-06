@@ -1,4 +1,9 @@
-export default function KnowBeforeTravel() {
+import React from 'react';
+import { useNavigate } from 'react-router-dom'; // 1. Added Import
+
+export default function PageH1() {
+  const navigate = useNavigate(); // 2. Added Hook
+
   return (
     <div className="w-full min-h-screen font-inter relative">
       {/* SECTION: CONTENT */}
@@ -7,21 +12,23 @@ export default function KnowBeforeTravel() {
           {/* OUTER FLEX */}
           <div className="flex flex-col lg:flex-row lg:items-start gap-6 sm:gap-8 lg:gap-12 xl:gap-16">
             
-            {/* LEFT IMAGES (will appear at the top on mobile, on the left on desktop) */}
+            {/* LEFT IMAGES */}
             <div className="relative flex-shrink-0 mx-auto lg:mx-0 order-1 lg:order-1">
               <img
+                loading="lazy"
                 src="/webp.webp"
                 alt="Back"
                 className="w-[200px] xs:w-[220px] sm:w-[250px] md:w-[300px] lg:w-[320px] xl:w-[380px] h-auto object-cover rounded-[100px] xs:rounded-[110px] sm:rounded-[125px] md:rounded-[150px] lg:rounded-[160px] xl:rounded-[220px] shadow-2xl"
               />
               <img
+                loading="lazy"
                 src="/front.jpg"
                 alt="Front"
                 className="w-[140px] xs:w-[150px] sm:w-[180px] md:w-[220px] lg:w-[240px] xl:w-[280px] h-auto object-cover rounded-[100px] xs:rounded-[110px] sm:rounded-[125px] md:rounded-[150px] lg:rounded-[160px] xl:rounded-[220px] border-[3px] xs:border-[4px] sm:border-[4px] md:border-[6px] lg:border-[6px] xl:border-[8px] border-white absolute bottom-0 right-0 translate-x-3 xs:translate-x-4 sm:translate-x-6 md:translate-x-8 lg:translate-x-12 xl:translate-x-16 translate-y-3 xs:translate-y-4 sm:translate-y-6 md:translate-y-8 lg:translate-y-10 xl:translate-y-12 shadow-2xl"
               />
             </div>
             
-            {/* RIGHT SIDE CONTENT (Text and cards will appear below on mobile, on the right on desktop) */}
+            {/* RIGHT SIDE CONTENT */}
             <div className="flex-1 flex flex-col items-center lg:items-center ml-0 lg:ml-2 justify-center gap-6 sm:gap-8 md:gap-10 order-2 lg:order-2">
               
               {/* Title and Description */}
@@ -46,7 +53,7 @@ export default function KnowBeforeTravel() {
                       className="w-[60px] xs:w-[70px] sm:w-[80px] md:w-[100px] lg:w-[120px] xl:w-[130px] h-[40px] xs:h-[45px] sm:h-[50px] md:h-[65px] lg:h-[80px] xl:h-[85px] rounded-full flex items-center justify-center flex-shrink-0"
                       style={{ backgroundColor: "rgba(38, 58, 72, 1)" }}
                     >
-                      <img src="/image1.png" alt="icon1" className="w-5 xs:w-6 sm:w-7 md:w-9 lg:w-10 xl:w-12 h-5 xs:h-6 sm:h-7 md:h-9 lg:h-10 xl:h-12 object-contain" />
+                      <img loading="lazy" src="/image1.png" alt="icon1" className="w-5 xs:w-6 sm:w-7 md:w-9 lg:w-10 xl:w-12 h-5 xs:h-6 sm:h-7 md:h-9 lg:h-10 xl:h-12 object-contain" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="text-[#151515] text-sm xs:text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl font-bold uppercase leading-tight mb-1 sm:mb-2">
@@ -64,7 +71,7 @@ export default function KnowBeforeTravel() {
                       className="w-[60px] xs:w-[70px] sm:w-[80px] md:w-[100px] lg:w-[120px] xl:w-[130px] h-[40px] xs:h-[45px] sm:h-[50px] md:h-[65px] lg:h-[80px] xl:h-[85px] rounded-full flex items-center justify-center flex-shrink-0"
                       style={{ backgroundColor: "rgba(38, 58, 72, 1)" }}
                     >
-                      <img src="/image2.png" alt="icon2" className="w-5 xs:w-6 sm:w-7 md:w-9 lg:w-10 xl:w-12 h-5 xs:h-6 sm:h-7 md:h-9 lg:h-10 xl:h-12 object-contain" />
+                      <img loading="lazy" src="/image2.png" alt="icon2" className="w-5 xs:w-6 sm:w-7 md:w-9 lg:w-10 xl:w-12 h-5 xs:h-6 sm:h-7 md:h-9 lg:h-10 xl:h-12 object-contain" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="text-[#151515] text-sm xs:text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl font-bold uppercase leading-tight mb-1 sm:mb-2">
@@ -82,7 +89,7 @@ export default function KnowBeforeTravel() {
                       className="w-[60px] xs:w-[70px] sm:w-[80px] md:w-[100px] lg:w-[120px] xl:w-[130px] h-[40px] xs:h-[45px] sm:h-[50px] md:h-[65px] lg:h-[80px] xl:h-[85px] rounded-full flex items-center justify-center flex-shrink-0"
                       style={{ backgroundColor: "rgba(38, 58, 72, 1)" }}
                     >
-                      <img src="/image3.png" alt="icon3" className="w-5 xs:w-6 sm:w-7 md:w-9 lg:w-10 xl:w-12 h-5 xs:h-6 sm:h-7 md:h-9 lg:h-10 xl:h-12 object-contain" />
+                      <img loading="lazy" src="/image3.png" alt="icon3" className="w-5 xs:w-6 sm:w-7 md:w-9 lg:w-10 xl:w-12 h-5 xs:h-6 sm:h-7 md:h-9 lg:h-10 xl:h-12 object-contain" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="text-[#151515] text-sm xs:text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl font-bold uppercase leading-tight mb-1 sm:mb-2">
@@ -101,6 +108,21 @@ export default function KnowBeforeTravel() {
           </div>
         </div>
       </div>
+      
+      {/* 3. BUTTON NAVIGATION - Navigates to '/enquire' because that is where Page4 is located in App.js */}
+      {/* 3. RESIZED ATTRACTIVE MOVING BUTTON */}
+      <div className="fixed bottom-6 left-6 z-50">
+        <button 
+          onClick={() => navigate('/enquire')} 
+          className="bg-gradient-to-r from-amber-500 to-orange-600 text-white text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-lg animate-bounce hover:animate-none hover:scale-105 transition-all duration-300 font-bold tracking-wide flex items-center gap-1.5"
+        >
+          <span>Enquire Now</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </button>
+      </div>
+
     </div>
   );
 }

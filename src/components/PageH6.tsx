@@ -44,6 +44,7 @@ const Page6 = () => {
   <div className="absolute top-[45px] left-0 p-[0.5cm] border border-black rounded-[280px_280px_0_0/280px_280px_0_0] w-fit mx-auto">
     <div className="w-[260px] sm:w-[320px] md:w-[360px] h-[340px] sm:h-[400px] md:h-[460px] overflow-hidden rounded-t-[180px]">
       <img
+        loading="lazy"
         src="/6bj.jpg"
         alt="Dubai aerial view"
         className="w-full h-full object-cover"
@@ -54,6 +55,7 @@ const Page6 = () => {
   {/* Testimonial 1 */}
   <div className="absolute top-[420px] left-[-20px] sm:left-[-40px] md:left-[-95px] w-[280px] sm:w-[320px] md:w-[390px] bg-white/80 border border-black rounded-2xl flex items-center gap-4 px-4 sm:px-6 py-3 sm:py-4 shadow-xl">
     <img
+      loading="lazy"
       src="/6p1.jpg"
       alt="User"
       className="w-[50px] sm:w-[70px] md:w-[80px] h-[50px] sm:h-[70px] md:h-[80px] rounded-full object-cover"
@@ -66,6 +68,7 @@ const Page6 = () => {
   {/* Testimonial 2 */}
 <div className="absolute top-[90px] left-[160px] sm:left-[220px] md:left-[320px] lg:left-[280px] w-[250px] sm:w-[300px] md:w-[390px] bg-white/80 border border-black rounded-2xl flex items-center gap-4 px-4 sm:px-6 py-3 sm:py-4 shadow-xl">
   <img
+    loading="lazy"
     src="/6p1.jpg"
     alt="User"
     className="w-[50px] sm:w-[70px] md:w-[80px] h-[50px] sm:h-[70px] md:h-[80px] rounded-full object-cover"
@@ -119,3 +122,4 @@ const Page6 = () => {
 };
 
 export default Page6;
+
