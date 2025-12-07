@@ -15,28 +15,32 @@ import Page9 from '../components/Page9';
 import Page10 from '../components/Page10';
 
 const DestinationPage = () => {
-    const { slug } = useParams<{ slug: string }>();
-    const [data, setData] = useState<any>(null);
+    const { slug } = useParams(); // Removed <{ slug: string }> for cleaner JS syntax if not using TS strictly
+    const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // 1. Memoized the data fetching function with useCallback.
+    // 1. Get the Backend URL from Environment Variables
+    const API_URL = import.meta.env.VITE_API_URL;
+
     const fetchAndEnrichPageData = useCallback(async () => {
         if (!slug) return;
         setLoading(true);
         try {
             const identifier = slug.charAt(0).toUpperCase() + slug.slice(1);
-            const pageResponse = await fetch(`/api/page/${identifier}`);
+
+            // 2. UPDATED FETCH CALLS (Now pointing to Render)
+            const pageResponse = await fetch(`${API_URL}/api/page/${identifier}`);
             if (!pageResponse.ok) throw new Error('Destination not found');
             const pageData = await pageResponse.json();
 
-            const itinerariesResponse = await fetch(`/api/itineraries/${slug}`);
+            const itinerariesResponse = await fetch(`${API_URL}/api/itineraries/${slug}`);
             if (!itinerariesResponse.ok) throw new Error('Itineraries not found');
             const allItineraries = await itinerariesResponse.json();
             
-            const itineraryMap = new Map(allItineraries.map((it: any) => [it.name, it]));
+            const itineraryMap = new Map(allItineraries.map((it) => [it.name, it]));
 
             if (pageData.Page3?.cards) {
-                pageData.Page3.cards = pageData.Page3.cards.map((card: any) => {
+                pageData.Page3.cards = pageData.Page3.cards.map((card) => {
                     const fullItinerary = itineraryMap.get(card.cardText);
                     return fullItinerary ? { ...card, _id: fullItinerary._id } : card;
                 });
@@ -47,7 +51,7 @@ const DestinationPage = () => {
         } finally {
             setLoading(false);
         }
-    }, [slug]); // Dependency is the slug, so this function is stable unless the URL changes.
+    }, [slug, API_URL]); 
 
     useEffect(() => {
         fetchAndEnrichPageData();
