@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import Blog from '../models/Blog.js'; // Note: Added .js extension
+
 const router = express.Router();
-const Blog = require('../models/Blog');
 
 router.get('/', async (req, res) => {
     try {
@@ -53,4 +54,4 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router; // <-- CRITICAL FIX: Changed from module.exports

@@ -1,7 +1,10 @@
-const router = require('express').Router();
-const mongoose = require('mongoose');
-const Itinerary = require('../models/Itinerary');
+import express from 'express';
+import mongoose from 'mongoose';
+import Itinerary from '../models/Itinerary.js'; // Note: Added .js extension
 
+const router = express.Router();
+
+// Get itinerary by ID
 router.get('/id/:id', async (req, res) => {
     try {
         const { id } = req.params;
@@ -19,6 +22,7 @@ router.get('/id/:id', async (req, res) => {
     }
 });
 
+// Get itineraries by filter (destination or desire)
 router.get('/:filter', async (req, res) => {
     try {
         const { filter } = req.params;
@@ -33,4 +37,4 @@ router.get('/:filter', async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router; // <-- CRITICAL FIX: Changed from module.exports
